@@ -1,0 +1,220 @@
+[
+    {
+        "id": "START",
+        "type": "start",
+        "text": "Good evening. Let's reflect on your day.",
+        "next": "A1_Q1"
+    },
+    {
+        "id": "A1_Q1",
+        "type": "question",
+        "text": "How was your day overall?",
+        "options": [
+            "Productive",
+            "Tough",
+            "Mixed"
+        ],
+        "next": "A1_D1"
+    },
+    {
+        "id": "A1_D1",
+        "type": "decision",
+        "rules": {
+            "Productive": "A1_Q2_INT",
+            "Mixed": "A1_Q2_INT",
+            "Tough": "A1_Q2_EXT"
+        }
+    },
+    {
+        "id": "A1_Q2_INT",
+        "type": "question",
+        "text": "Why did things go well?",
+        "options": [
+            "My effort",
+            "Planning",
+            "Adaptation"
+        ],
+        "signal": "axis1:internal",
+        "next": "A1_R1"
+    },
+    {
+        "id": "A1_Q2_EXT",
+        "type": "question",
+        "text": "Why did things go wrong?",
+        "options": [
+            "Others",
+            "Bad luck",
+            "Situation"
+        ],
+        "signal": "axis1:external",
+        "next": "A1_R2"
+    },
+    {
+        "id": "A1_R1",
+        "type": "reflection",
+        "text": "You showed agency today — that's powerful.",
+        "next": "A1_Q3"
+    },
+    {
+        "id": "A1_R2",
+        "type": "reflection",
+        "text": "Tough days happen, but where did you still have control?",
+        "next": "A1_Q3"
+    },
+    {
+        "id": "A1_Q3",
+        "type": "question",
+        "text": "When facing a problem, what did you do?",
+        "options": [
+            "Tried solving",
+            "Waited",
+            "Asked help"
+        ],
+        "next": "A1_R3"
+    },
+    {
+        "id": "A1_R3",
+        "type": "reflection",
+        "text": "Your response defines your growth.",
+        "next": "BRIDGE_1_2"
+    },
+    {
+        "id": "BRIDGE_1_2",
+        "type": "bridge",
+        "text": "Now let's shift to contribution.",
+        "next": "A2_Q1"
+    },
+    {
+        "id": "A2_Q1",
+        "type": "question",
+        "text": "What did you do for others today?",
+        "options": [
+            "Helped",
+            "Nothing",
+            "Expected reward"
+        ],
+        "next": "A2_D1"
+    },
+    {
+        "id": "A2_D1",
+        "type": "decision",
+        "rules": {
+            "Helped": "A2_R1",
+            "Nothing": "A2_R2",
+            "Expected reward": "A2_R3"
+        }
+    },
+    {
+        "id": "A2_R1",
+        "type": "reflection",
+        "text": "You contributed — that builds value.",
+        "signal": "axis2:contribution",
+        "next": "A2_Q2"
+    },
+    {
+        "id": "A2_R2",
+        "type": "reflection",
+        "text": "Think about small ways to contribute.",
+        "signal": "axis2:entitlement",
+        "next": "A2_Q2"
+    },
+    {
+        "id": "A2_R3",
+        "type": "reflection",
+        "text": "Expectations can limit growth.",
+        "signal": "axis2:entitlement",
+        "next": "A2_Q2"
+    },
+    {
+        "id": "A2_Q2",
+        "type": "question",
+        "text": "Did you go beyond your role?",
+        "options": [
+            "Yes",
+            "No",
+            "Sometimes"
+        ],
+        "next": "A2_R4"
+    },
+    {
+        "id": "A2_R4",
+        "type": "reflection",
+        "text": "Growth happens outside comfort.",
+        "next": "BRIDGE_2_3"
+    },
+    {
+        "id": "BRIDGE_2_3",
+        "type": "bridge",
+        "text": "Now think beyond yourself.",
+        "next": "A3_Q1"
+    },
+    {
+        "id": "A3_Q1",
+        "type": "question",
+        "text": "Who mattered most today?",
+        "options": [
+            "Me",
+            "Team",
+            "Customer"
+        ],
+        "next": "A3_D1"
+    },
+    {
+        "id": "A3_D1",
+        "type": "decision",
+        "rules": {
+            "Me": "A3_R1",
+            "Team": "A3_R2",
+            "Customer": "A3_R3"
+        }
+    },
+    {
+        "id": "A3_R1",
+        "type": "reflection",
+        "text": "Self-focus is natural, but growth expands outward.",
+        "signal": "axis3:self",
+        "next": "A3_Q2"
+    },
+    {
+        "id": "A3_R2",
+        "type": "reflection",
+        "text": "Thinking about team builds collaboration.",
+        "signal": "axis3:team",
+        "next": "A3_Q2"
+    },
+    {
+        "id": "A3_R3",
+        "type": "reflection",
+        "text": "Customer focus creates impact.",
+        "signal": "axis3:impact",
+        "next": "A3_Q2"
+    },
+    {
+        "id": "A3_Q2",
+        "type": "question",
+        "text": "Did you consider others' struggles?",
+        "options": [
+            "Yes",
+            "No",
+            "Not sure"
+        ],
+        "next": "A3_R4"
+    },
+    {
+        "id": "A3_R4",
+        "type": "reflection",
+        "text": "Empathy expands perspective.",
+        "next": "SUMMARY"
+    },
+    {
+        "id": "SUMMARY",
+        "type": "summary",
+        "text": "Reflection complete.",
+        "next": "END"
+    },
+    {
+        "id": "END",
+        "type": "end",
+        "text": "See you tomorrow!"
+    }
+]
